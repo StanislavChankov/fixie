@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { EngineService } from '../../core/services/engine.service';
 
 @Component({
   selector: 'app-starting-point',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartingPointComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('rendererCanvas', { static: true })
+  public rendererCanvas: ElementRef<HTMLCanvasElement>;
 
-  ngOnInit() {}
+  public constructor(private engServ: EngineService) { }
 
+  public ngOnInit(): void {
+    this.engServ.createScene(this.rendererCanvas);
+    this.engServ.animate();
+  }
 }
