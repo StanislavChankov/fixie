@@ -1,2 +1,2 @@
 # fixie
-Simple game for Android/iOS with Angular and Ionic
+Simple game for Android/iOS with Angular, Ionic, Capacitor and BabylonJS.
